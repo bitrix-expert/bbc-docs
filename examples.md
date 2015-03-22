@@ -1,6 +1,6 @@
 # Примеры
 
-Рассмотрим несколько примеров, демонстрирующих некоторые возможности ББК. В качестве примера будем считать, что ББК размещён в зоне `basis`, а наши тестовые — в зоне `test`.
+Рассмотрим несколько примеров, демонстрирующих некоторые возможности ББК. В качестве примера будем считать, что ББК размещён в зоне `bbc`, а наши тестовые — в зоне `test`.
 
 ## «Мой первый компонент»
 
@@ -17,7 +17,7 @@ namespace Components\Test;
 if(!defined('B_PROLOG_INCLUDED')||B_PROLOG_INCLUDED!==true)die();
 
 // Подключаем компонент, от которого будем наследоваться
-\CBitrixComponent::includeComponentClass('basis:basis');
+\CBitrixComponent::includeComponentClass('bbc:basis');
 
 class List extends Basis
 {
@@ -82,7 +82,7 @@ use Components\Basis;
 
 if(!defined('B_PROLOG_INCLUDED')||B_PROLOG_INCLUDED!==true)die();
 
-\CBitrixComponent::includeComponentClass('basis:elements.list');
+\CBitrixComponent::includeComponentClass('bbc:elements.list');
 
 class ElementsList extends Basis\ElementsList
 {
