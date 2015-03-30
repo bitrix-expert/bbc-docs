@@ -185,8 +185,8 @@ $(function() {
 		$.ajax({
 			type: 'GET',
 			data: $(this).data('ajax-params'),
-			success: function (responce) {
-				$('#ajax-block').html(responce);
+			success: function (response) {
+				$('#ajax-block').html(response);
 			}
 		});
 	});

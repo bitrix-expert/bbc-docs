@@ -11,8 +11,11 @@
 ```php
 <?php
 
-// Для разграничения и лаконичности имён классов добавим нэйм-спейс
-namespace Components\Test;
+// Для разграничения и лаконичности имён классов добавим нэйм-спейс своих компонентов,
+// будто бы они располагаются в каталоге /local/components/supersite/
+namespace Vasya\Supersite\Components;
+
+use Expert\Bbc\Components\Basis;
 
 if(!defined('B_PROLOG_INCLUDED')||B_PROLOG_INCLUDED!==true)die();
 
@@ -37,7 +40,7 @@ class List extends Basis
 
 class List extends Basis
 {
-    protected functions executeMain()
+    protected function executeMain()
     {
 	    $this->arResult['SUM'] = $this->arParams['NUM_1'] + $this->arParams['NUM_2'];
     }
@@ -73,15 +76,15 @@ class List extends Basis
 ```php
 <?php
 
-namespace Components\Test;
+namespace Vasya\Supersite\Components;
 
-use Components\Basis;
+use Expert\Bbc;
 
 if(!defined('B_PROLOG_INCLUDED')||B_PROLOG_INCLUDED!==true)die();
 
 \CBitrixComponent::includeComponentClass('basis:elements.list');
 
-class ElementsList extends Basis\ElementsList
+class ElementsList extends Bbc\Components\ElementsList
 {
 	// $element — это массив конкретного элемента инфоблока, возвращаемый в результате
 	// выборки из инфоблока. Метод вызывается непосредственно перед записью жлемента
