@@ -1,17 +1,5 @@
 # Компоненты
 
-## basis
-
-Базовый абстрактный компонент.
-
-Основной компонент, с которым чаще всего вам придётся работать. От него должны наследоваться все создаваемые компоненты, кроме комплексных компонентов, обеспечивающий роутинг — для этого необходимо наследоваться от компонента `basis.router`.
-
-## basis.router
-
-Базовый абстрактный компонент.
-
-Используется при создании комплексных компонентов, обеспечивабщий роутинг. При решении каких-либо других задач нужно наследоваться от компонента `basis`.
-
 ## elements
 
 Компонент-пример.
@@ -29,7 +17,11 @@
 ```php
 <?php
 
-class TestList extends Basis\ElementsList
+namespase Myproject\Components;
+
+use Bex\Bbc\Components\ElementsList;
+
+class TestList extends ElementsList
 {
 	protected function processingElementsResult($element)
 	{
@@ -55,7 +47,11 @@ class TestList extends Basis\ElementsList
 ```php
 <?php
 
-class TestDetail extends Basis\ElementsDetail
+namespase Myproject\Components;
+
+use Bex\Bbc\Components\ElementsDetail;
+
+class TestDetail extends ElementsDetail
 {
 	protected function processingElementsResult($element)
 	{
