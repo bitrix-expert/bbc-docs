@@ -13,14 +13,14 @@
 
 // Для разграничения и лаконичности имён классов добавим нэйм-спейс своих компонентов,
 // будто бы они располагаются в каталоге /local/components/supersite/
-namespace Vasya\Supersite\Components;
+namespace Myproject\Components;
 
-use Expert\Bbc\Components\Basis;
+use Bex\Bbc\Basis;
 
 if(!defined('B_PROLOG_INCLUDED')||B_PROLOG_INCLUDED!==true)die();
 
-// Подключаем компонент, от которого будем наследоваться
-\CBitrixComponent::includeComponentClass('bbc:basis');
+// Подключаем модуль, т. к. в нём находится класс для базового компонента
+if (!\Bitrix\Main\Loader::includeModule('bex.bbc')) return false;
 
 class List extends Basis
 {
@@ -39,12 +39,9 @@ class List extends Basis
 ```php
 <?php
 
-class List extends Basis
+protected function executeMain()
 {
-    protected function executeMain()
-    {
-	    $this->arResult['SUM'] = $this->arParams['NUM_1'] + $this->arParams['NUM_2'];
-    }
+    $this->arResult['SUM'] = $this->arParams['NUM_1'] + $this->arParams['NUM_2'];
 }
 ```
 
@@ -53,17 +50,14 @@ class List extends Basis
 ```php
 <?php
 
-class List extends Basis
+protected function executeProlog()
 {
-	protected function executeProlog()
-	{
-		$this->arResult['RANDOM_NUMBER'] = rand();
-	}
+	$this->arResult['RANDOM_NUMBER'] = rand();
+}
 	
-	protected functions executeMain()
-    {
-	    $this->arResult['SUM'] = $this->arParams['NUM_1'] + $this->arParams['NUM_2'];
-    }
+protected functions executeMain()
+{
+    $this->arResult['SUM'] = $this->arParams['NUM_1'] + $this->arParams['NUM_2'];
 }
 ```
 
@@ -79,15 +73,15 @@ class List extends Basis
 ```php
 <?php
 
-namespace Vasya\Supersite\Components;
+namespace Myproject\Components;
 
-use Expert\Bbc;
+use Bex\Bbc\Components\ElementsList;
 
 if(!defined('B_PROLOG_INCLUDED')||B_PROLOG_INCLUDED!==true)die();
 
 \CBitrixComponent::includeComponentClass('bbc:elements.list');
 
-class ElementsList extends Bbc\Components\ElementsList
+class NewsList extends ElementsList
 {
 	// $element — это массив конкретного элемента инфоблока, возвращаемый в результате
 	// выборки из инфоблока. Метод вызывается непосредственно перед записью жлемента
