@@ -35,6 +35,11 @@
 ```php
 <?php
 
+namespase Myproject\Components;
+
+use Bex\Bbc\Basis;
+use Bex\Bbc\Traits\Elements;
+
 class Test extends Basis
 {
 	use Elements;
