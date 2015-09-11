@@ -198,17 +198,14 @@ $this->arParams['AJAX_HEAD_RELOAD'] = 'Y';
 
 ```javascript
 // script.js
-$(function() {
-	$(document).on('click', '.js-ajax', function() {
-		$.ajax({
-			type: 'GET',
-			data: $(this).data('ajax-params'),
-			success: function (response) {
-				$('#ajax-block').html(response);
-			}
-		});
+$(document).on('click', '.js-ajax', function() {
+	$.ajax({
+		data: $(this).data('ajaxParams'),
+		success: function (response) {
+			$('#ajax-block').html(response);
+		}
 	});
-})
+});
 ```
 
 Готово. Теперь при клике на ссылку «Подгрузить данные аяксом» текущему компоненту будет отправляться аякс-запрос. Компонент вернёт ответ, используя в качестве шаблона файл `ajax.php`.
