@@ -26,7 +26,7 @@ class TestList extends ElementsList
 	protected function processingElementsResult($element)
 	{
 		// Зададим другое значение названию элемента
-		$element[‘NAME’] = ‘Тест’; 
+		$element['NAME'] = 'Тест'; 
 		
 		return $element;
 
@@ -56,7 +56,7 @@ class TestDetail extends ElementsDetail
 	protected function processingElementsResult($element)
 	{
 		// Зададим другое значение названию элемента
-		$element[‘NAME’] = ‘Тест’; 
+		$element['NAME'] = 'Тест'; 
 		
 		return $element;
 	}
