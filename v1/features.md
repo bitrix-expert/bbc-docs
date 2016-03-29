@@ -32,7 +32,7 @@ class TestChild extends TestParent
 	{
 		// Дополним свойство needModules, что бы не потерять настройки родительского класса
 		// Подключаем модули веб-формы и поиск
-		$this->needModules += ['form', 'search'];
+		$this->needModules = array_unique(array_merge($this->needModules, ['form', 'search']));
 
 		return parent::onPrepareComponentParams($params);
 	}
